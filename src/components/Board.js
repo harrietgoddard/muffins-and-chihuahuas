@@ -4,12 +4,12 @@ import Square from "./Square";
 const initialState = {
     player1: true,
     board: Array(9).fill(null),
-    winner: ""
+    winner: 0
 }
 
 const clicked = (state, { index }) => {
     let newBoard = [...state.board];
-    newBoard[index] = state.player1 ? "X" : "O";
+    newBoard[index] = state.player1 ? 1 : 2;
     return {
         ...state,
         player1: !state.player1,
@@ -18,6 +18,34 @@ const clicked = (state, { index }) => {
 }
 
 const calculateWinner = state => {
+    // let lines = [
+    //     [0, 1, 2],
+    //     [3, 4, 5],
+    //     [6, 7, 8],
+    //     [0, 3, 6],
+    //     [1, 4, 7],
+    //     [2, 5, 8],
+    //     [0, 4, 8],
+    //     [2, 4, 6]
+    // ];
+
+    // lines.forEach(line => {
+    //     let { board } = state;
+    //     let a = line[0];
+    //     let b = line[1];
+    //     let c = line[2];
+
+        // if ( board[a] && board[b] && board[c] && board[a] === board[b] && board[a] === board[c]) {
+        //     console.log("won");
+        //     return {
+        //         ...state,
+        //         winner: state.board[a]
+        //     }
+        // }
+    // })
+
+    // return state;
+
     let lines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -29,21 +57,25 @@ const calculateWinner = state => {
         [2, 4, 6]
     ];
 
-    lines.map(line => {
-        let { board } = state;
-        let a = line[0];
-        let b = line[1];
-        let c = line[2];
+    const { board } = state;
 
-        if ( board[a] && board[b] && board[c] && board[a] === board[b] && board[a] === board[c]) {
-            console.log("won");
-            // return {
-            //     ...state,
-            //     winner: state.board[a]
-            // }
-        } else 
-        return state;
-    })
+    for (let i = 0; i < lines.length; i += 1) {
+
+        let [a, b, c] = lines[i];
+
+        if (
+            board[a] && board[b] && board[b] 
+            &&
+            board[a] === board[b] && board[a] === board[c]
+            ) {
+            return {
+                ...state,
+                winner: board[a]
+            }
+        }
+
+    }
+
 
     return state;
 }
