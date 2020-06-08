@@ -164,6 +164,7 @@ const Board = () => {
             <Commentary 
                 player1={ player1 }
                 winner={ winner }
+                board={ board }
             />
 
             <button
