@@ -16,7 +16,9 @@ const Square = ({ player1, status, handleClick }) => {
             justifyContent: "center",
             alignItems: "center",
             cursor: "pointer",
-            backgroundImage: `url("/images/${ background }")`
+            backgroundImage: `url("/images/${ background }")`,
+            backgroundSize: "cover",
+            pointerEvents: status ? "none" : "auto"
         }}
             onClick={ handleClick }
         />

@@ -3,7 +3,7 @@ import Square from "./Square";
 
 const initialState = {
     player1: true,
-    board: Array(9).fill(null),
+    board: Array(9).fill(0),
     winner: 0
 }
 
