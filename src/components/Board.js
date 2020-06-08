@@ -1,5 +1,6 @@
 import React, { useReducer } from "react";
 import Square from "./Square";
+import Commentary from "./Commentary";
 
 const initialState = {
     player1: true,
@@ -41,7 +42,7 @@ const calculateWinner = state => {
             &&
             board[a] === board[b] && board[a] === board[c]
             ) {
-            return {
+                return {
                 ...state,
                 winner: board[a]
             }
@@ -73,72 +74,72 @@ const Board = () => {
                 height: 300
             }}>
                 <Square 
-                    player1={ player1 }
                     status={ board[0] } 
+                    winner={ winner }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 0}) 
                     }
                 />
                 <Square 
-                    player1={ player1 }
                     status={ board[1] } 
+                    winner={ winner }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 1
                     }) }
                 />
                 <Square 
-                    player1={ player1 }
                     status={ board[2] } 
+                    winner={ winner }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 2
                     }) }
                 />
                 <Square 
-                    player1={ player1 }
                     status={ board[3] } 
+                    winner={ winner }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 3
                     }) }
                 />
                 <Square 
-                    player1={ player1 }
                     status={ board[4] } 
+                    winner={ winner }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 4
                     }) }
                 />
                 <Square 
-                    player1={ player1 }
                     status={ board[5] } 
+                    winner={ winner }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 5
                     }) }
                 />
                 <Square 
-                    player1={ player1 }
                     status={ board[6] } 
+                    winner={ winner }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 6}) 
                     }
                 />
                 <Square 
-                    player1={ player1 }
                     status={ board[7] } 
+                    winner={ winner }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 7
                     }) }
                 />
                 <Square 
-                    player1={ player1 }
                     status={ board[8] } 
+                    winner={ winner }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 8
@@ -146,8 +147,11 @@ const Board = () => {
                 />
             
             </div>
-            
-            { winner ? <p>{ (winner === 1 ? "Chihuahua" : "Muffin") + " wins!" }</p> : null }
+
+            <Commentary 
+                player1={ player1 }
+                winner={ winner }
+            />
 
         </>    
     )

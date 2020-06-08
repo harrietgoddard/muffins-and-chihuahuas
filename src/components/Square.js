@@ -1,6 +1,6 @@
 import React from "react";
 
-const Square = ({ player1, status, handleClick }) => {
+const Square = ({ status, winner, handleClick }) => {
     
     let background = status === 1 ? "chihuahua.jpeg" :
     status === 2 ? "muffin.jpg" :
@@ -18,7 +18,7 @@ const Square = ({ player1, status, handleClick }) => {
             cursor: "pointer",
             backgroundImage: `url("/images/${ background }")`,
             backgroundSize: "cover",
-            pointerEvents: status ? "none" : "auto"
+            pointerEvents: status || winner ? "none" : "auto"
         }}
             onClick={ handleClick }
         />
