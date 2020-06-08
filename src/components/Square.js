@@ -1,8 +1,8 @@
 import React from "react";
 
-const Square = ({ status, winner, handleClick }) => {
+const Square = ({ status, winner, counter, handleClick }) => {
     
-    let background = status === 1 ? "chihuahua.jpeg" :
+    let background = status === 1 ? `chihuahua-1.jpeg` :
     status === 2 ? "muffin.jpg" :
     "";
 

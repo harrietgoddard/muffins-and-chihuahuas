@@ -5,6 +5,7 @@ import Commentary from "./Commentary";
 const initialState = {
     player1: true,
     board: Array(9).fill(0),
+    counter: 0,
     winner: 0
 }
 
@@ -14,7 +15,8 @@ const clicked = (state, { index }) => {
     return {
         ...state,
         player1: !state.player1,
-        board: newBoard
+        board: newBoard,
+        counter: state.counter + 1
     }
 }
 
@@ -63,7 +65,7 @@ const reducer = (state, action) => {
 
 const Board = () => {
     
-    const [{ player1, board, winner }, dispatch] = useReducer(reducer, initialState);
+    const [{ player1, board, winner, counter }, dispatch] = useReducer(reducer, initialState);
 
     return (
         <>
@@ -76,6 +78,7 @@ const Board = () => {
                 <Square 
                     status={ board[0] } 
                     winner={ winner }
+                    counter={ counter }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 0}) 
@@ -84,6 +87,7 @@ const Board = () => {
                 <Square 
                     status={ board[1] } 
                     winner={ winner }
+                    counter={ counter }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 1
@@ -92,6 +96,7 @@ const Board = () => {
                 <Square 
                     status={ board[2] } 
                     winner={ winner }
+                    counter={ counter }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 2
@@ -100,6 +105,7 @@ const Board = () => {
                 <Square 
                     status={ board[3] } 
                     winner={ winner }
+                    counter={ counter }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 3
@@ -108,6 +114,7 @@ const Board = () => {
                 <Square 
                     status={ board[4] } 
                     winner={ winner }
+                    counter={ counter }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 4
@@ -116,6 +123,7 @@ const Board = () => {
                 <Square 
                     status={ board[5] } 
                     winner={ winner }
+                    counter={ counter }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 5
@@ -124,6 +132,7 @@ const Board = () => {
                 <Square 
                     status={ board[6] } 
                     winner={ winner }
+                    counter={ counter }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 6}) 
@@ -132,6 +141,7 @@ const Board = () => {
                 <Square 
                     status={ board[7] } 
                     winner={ winner }
+                    counter={ counter }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 7
@@ -140,6 +150,7 @@ const Board = () => {
                 <Square 
                     status={ board[8] } 
                     winner={ winner }
+                    counter={ counter }
                     handleClick={ () => dispatch({ 
                         type: "CLICKED", 
                         index: 8
