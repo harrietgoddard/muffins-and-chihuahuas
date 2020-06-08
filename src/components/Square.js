@@ -1,6 +1,11 @@
 import React from "react";
 
 const Square = ({ player1, status, handleClick }) => {
+    
+    let background = status === 1 ? "chihuahua.jpeg" :
+    status === 2 ? "muffin.jpg" :
+    "";
+
     return (
         <div 
             style={{ 
@@ -10,14 +15,11 @@ const Square = ({ player1, status, handleClick }) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            cursor: "pointer"
+            cursor: "pointer",
+            backgroundImage: `url("/images/${ background }")`
         }}
             onClick={ handleClick }
-        >
-            <p>
-                { status }
-            </p>
-        </div>
+        />
     )
 }
 
