@@ -59,6 +59,7 @@ const calculateWinner = state => {
 const reducer = (state, action) => {
     switch(action.type) {
         case "CLICKED": return calculateWinner(clicked(state, action));
+        case "RESET" : return initialState;
         default: return state;
     }
 }
@@ -76,6 +77,7 @@ const Board = () => {
                 height: 300
             }}>
                 <Square 
+                    id={ 0 }
                     status={ board[0] } 
                     winner={ winner }
                     counter={ counter }
@@ -163,6 +165,10 @@ const Board = () => {
                 player1={ player1 }
                 winner={ winner }
             />
+
+            <button
+                onClick={ () => dispatch({ type: "RESET" }) }
+            >New game</button>
 
         </>    
     )
