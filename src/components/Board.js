@@ -77,7 +77,7 @@ const Board = () => {
                 height: 300
             }}>
                 <Square 
-                    id={ 0 }
+                    row={ 1 }
                     status={ board[0] } 
                     winner={ winner }
                     counter={ counter }
@@ -87,6 +87,7 @@ const Board = () => {
                     }
                 />
                 <Square 
+                    row={ 1 }
                     status={ board[1] } 
                     winner={ winner }
                     counter={ counter }
@@ -96,6 +97,7 @@ const Board = () => {
                     }) }
                 />
                 <Square 
+                    row={ 1 }
                     status={ board[2] } 
                     winner={ winner }
                     counter={ counter }
@@ -105,6 +107,7 @@ const Board = () => {
                     }) }
                 />
                 <Square 
+                    row={ 2 }
                     status={ board[3] } 
                     winner={ winner }
                     counter={ counter }
@@ -114,6 +117,7 @@ const Board = () => {
                     }) }
                 />
                 <Square 
+                    row={ 2 }
                     status={ board[4] } 
                     winner={ winner }
                     counter={ counter }
@@ -123,6 +127,7 @@ const Board = () => {
                     }) }
                 />
                 <Square 
+                    row={ 2 }
                     status={ board[5] } 
                     winner={ winner }
                     counter={ counter }
@@ -132,6 +137,7 @@ const Board = () => {
                     }) }
                 />
                 <Square 
+                    row={ 3 }
                     status={ board[6] } 
                     winner={ winner }
                     counter={ counter }
@@ -141,6 +147,7 @@ const Board = () => {
                     }
                 />
                 <Square 
+                    row={ 3 }
                     status={ board[7] } 
                     winner={ winner }
                     counter={ counter }
@@ -150,6 +157,7 @@ const Board = () => {
                     }) }
                 />
                 <Square 
+                    row={ 3 }
                     status={ board[8] } 
                     winner={ winner }
                     counter={ counter }

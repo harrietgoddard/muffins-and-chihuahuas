@@ -1,9 +1,9 @@
 import React from "react";
 
-const Square = ({ id, status, winner, counter, handleClick }) => {
+const Square = ({ row, status, winner, counter, handleClick }) => {
     
-    let background = status === 1 ? `chihuahua-0.jpeg` :
-    status === 2 ? "muffin.jpg" :
+    let background = status === 1 ? `chihuahua-${ row }.jpeg` :
+    status === 2 ? `muffin-${ row }.jpeg` :
     "";
 
     return (
