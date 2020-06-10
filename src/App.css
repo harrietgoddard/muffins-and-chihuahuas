@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,63 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  background: antiquewhite;
+  color: sienna;
+  font-family: "Bubblegum Sans";
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+.board::after {
+  content: "";
+  background: url("/images/chihuahua-main.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}
+
+header {
+  padding: 10px 0;
+  font-size: 1.2rem;
+}
+
+header span {
+  font-size: 1.5rem;
+}
+
+.heading {
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 30px;
+  font-family: "Bubblegum Sans";
+  color: white;
+  font-size: 1.5rem;
+  background: sienna;
+  border: none;
+  border-radius: 3px;
 }

@@ -1,81 +1,17 @@
 import React, { useReducer } from "react";
+import reducer from "../reducer";
+import initialState from "../initial";
 import Square from "./Square";
 import Commentary from "./Commentary";
-
-const initialState = {
-    player1: true,
-    board: Array(9).fill(0),
-    counter: 0,
-    winner: 0
-}
-
-const clicked = (state, { index }) => {
-    let newBoard = [...state.board];
-    newBoard[index] = state.player1 ? 1 : 2;
-    return {
-        ...state,
-        player1: !state.player1,
-        board: newBoard,
-        counter: state.counter + 1
-    }
-}
-
-const calculateWinner = state => {
-
-    let lines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-    ];
-
-    const { board } = state;
-
-    for (let i = 0; i < lines.length; i += 1) {
-
-        let [a, b, c] = lines[i];
-
-        if (
-            board[a] && board[b] && board[b] 
-            &&
-            board[a] === board[b] && board[a] === board[c]
-            ) {
-                return {
-                ...state,
-                winner: board[a]
-            }
-        }
-
-    }
-
-
-    return state;
-}
-
-const reducer = (state, action) => {
-    switch(action.type) {
-        case "CLICKED": return calculateWinner(clicked(state, action));
-        case "RESET" : return initialState;
-        default: return state;
-    }
-}
 
 const Board = () => {
     
     const [{ player1, board, winner, counter }, dispatch] = useReducer(reducer, initialState);
 
     return (
-        <>
-            <div style={{
-                display: "flex",
-                flexWrap: "wrap",
-                width: 300,
-                height: 300
-            }}>
+        <div className="container">
+
+            <div className="board">
                 <Square 
                     row={ 1 }
                     status={ board[0] } 
@@ -179,7 +115,7 @@ const Board = () => {
                 onClick={ () => dispatch({ type: "RESET" }) }
             >New game</button>
 
-        </>    
+        </div>    
     )
 }
 
