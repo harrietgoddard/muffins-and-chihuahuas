@@ -1,5 +1,6 @@
 import initialState from "./initial";
 
+//when square is clicked, update the corresponding item in the board array with 1 (player1) or 2 (player2)
 const clicked = (state, { index }) => {
     let newBoard = [...state.board];
     newBoard[index] = state.player1 ? 1 : 2;
@@ -13,6 +14,7 @@ const clicked = (state, { index }) => {
 
 const calculateWinner = state => {
 
+    //represents winning lines on the board
     let lines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -26,6 +28,7 @@ const calculateWinner = state => {
 
     const { board } = state;
 
+    //loop through the lines to identify whether the board contains any matching lines and which player has won
     for (let i = 0; i < lines.length; i += 1) {
 
         let [a, b, c] = lines[i];
