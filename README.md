@@ -1,3 +1,10 @@
+## Muffins and Chihuahuas
+
+A simple two player tic tac toe app to practice React skills in week nine of the coding bootcamp.
+
+![alt text](./img/screenshot.png)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
