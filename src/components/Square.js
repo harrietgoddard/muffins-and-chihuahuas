@@ -8,17 +8,10 @@ const Square = ({ row, status, winner, counter, handleClick }) => {
     "";
 
     return (
-        <div 
+        <div className="square"
             style={{ 
-            border: "1px solid black",
-            width: 100,
-            height: 100,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            cursor: "pointer",
             backgroundImage: `url("/images/${ background }")`,
-            backgroundSize: "cover",
+            // disable click event if already clicked or if game won
             pointerEvents: status || winner ? "none" : "auto"
         }}
             onClick={ handleClick }
